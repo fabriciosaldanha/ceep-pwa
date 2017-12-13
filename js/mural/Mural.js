@@ -1,6 +1,6 @@
 const Mural = (function(_render, Filtro){
     "use strict"
-    let cartoes = []
+    let cartoes = JSON.parse( localStorage.getItem("cartoes") ) || []
     const render = () => _render({cartoes: cartoes, filtro: Filtro.tagsETexto});
 
     Filtro.on("filtrado", render)
@@ -15,6 +15,7 @@ const Mural = (function(_render, Filtro){
                 cartoes.splice(cartoes.indexOf(cartao),1)
                 render()
             })
+            localStorage.setItem("cartoes", JSON.stringify(cartoes))
             render()
             return true
         }else{
