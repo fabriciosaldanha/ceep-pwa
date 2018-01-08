@@ -7,7 +7,7 @@ const Mural = (function(_render, Filtro){
         cartoes = pegaCartoesUsuario()
         render()
     })
-
+    
     login.on("logout", ()=>{
         cartoes = []
         render()
